@@ -22,9 +22,10 @@ npm run build
 npm run preview
 ```
 
-Deploy the contents of `dist` to your static host. Relative asset URLs support hosting
-under a repository subpath, such as GitHub Pages. Publishing the source directory
-directly is no longer sufficient; the host must serve the built output.
+Deploy the contents of `dist` to your static host. For GitHub Pages without Actions,
+copy the build output into `docs/`, push it, and select **main / docs** in the
+repository's Pages settings. Relative asset URLs support hosting under a repository
+subpath.
 
 ## Source
 
