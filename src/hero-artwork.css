@@ -1,0 +1,65 @@
+﻿.hero-artwork {
+  display: none;
+}
+@media (min-width: 901px) {
+  .hero .chrome-stage {
+    display: none;
+  }
+  .sphere-artwork {
+    display: block;
+    position: absolute;
+    width: 61%;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .sphere-scene {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    filter: drop-shadow(0 26px 30px #0007);
+  }
+  .sphere-scene [data-ball] {
+    filter: drop-shadow(0 0 12px #f4f7e8aa) drop-shadow(0 0 28px #c7dd9a44);
+    transform-origin: 300px 260px;
+  }
+  .pearl-fragment {
+    filter: drop-shadow(2px 5px 3px #0008) drop-shadow(0 0 5px #e3fc7730);
+    will-change: transform;
+  }
+  .pearl-cursor {
+    filter: drop-shadow(1px 3px 2px #0009) drop-shadow(0 0 5px #e3fc7744);
+    will-change: transform, opacity;
+  }
+  .cursor-ray {
+    opacity: 0.65;
+    filter: drop-shadow(0 0 4px #e3fc7766);
+  }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .sphere-scene [data-ring] {
+    animation: impact-ring 1.2s ease-out infinite;
+  }
+  @keyframes impact-ring {
+    0%,
+    44%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    72% {
+      opacity: 0;
+    }
+  }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .sphere-artwork {
+    width: 55%;
+    right: -7%;
+  }
+}
