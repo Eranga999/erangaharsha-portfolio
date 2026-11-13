@@ -191,7 +191,6 @@ export default function HeroArtwork() {
     function tick(now: number) {
       elapsed += last ? Math.min((now - last) / 1000, 0.08) : 0;
       last = now;
-      el.dataset.time = elapsed.toFixed(3);
       render(elapsed);
       frame = requestAnimationFrame(tick);
     }
