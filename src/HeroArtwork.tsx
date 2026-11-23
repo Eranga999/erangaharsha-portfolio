@@ -73,7 +73,10 @@ export default function HeroArtwork() {
     const cursors = [...el.querySelectorAll<SVGGElement>("[data-cursor]")];
     const shadow = el.querySelector<SVGEllipseElement>("[data-shadow]")!;
     const ring = el.querySelector<SVGCircleElement>("[data-ring]")!;
-    const desktop = matchMedia("(min-width: 901px)");
+    // The desktop sphere is also the tablet hero artwork. Keep the same
+    // animation running while the tablet layout is active, but leave phones
+    // on their lighter mobile treatment.
+    const artworkViewport = matchMedia("(min-width: 601px)");
     let frame = 0,
       last = 0,
       elapsed = 0;
@@ -197,13 +200,13 @@ export default function HeroArtwork() {
     function sync() {
       cancelAnimationFrame(frame);
       last = 0;
-      if (desktop.matches) frame = requestAnimationFrame(tick);
+      if (artworkViewport.matches) frame = requestAnimationFrame(tick);
     }
-    desktop.addEventListener("change", sync);
+    artworkViewport.addEventListener("change", sync);
     sync();
     return () => {
       cancelAnimationFrame(frame);
-      desktop.removeEventListener("change", sync);
+      artworkViewport.removeEventListener("change", sync);
     };
   }, []);
   return (

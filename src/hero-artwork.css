@@ -1,7 +1,7 @@
 ﻿.hero-artwork {
   display: none;
 }
-@media (min-width: 901px) {
+@media (min-width: 601px) {
   .hero .chrome-stage {
     display: none;
   }
@@ -39,7 +39,7 @@
     filter: drop-shadow(0 0 4px #e3fc7766);
   }
 }
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 601px) and (prefers-reduced-motion: no-preference) {
   .sphere-scene [data-ring] {
     animation: impact-ring 1.2s ease-out infinite;
   }
@@ -57,9 +57,29 @@
     }
   }
 }
-@media (min-width: 901px) and (max-width: 1100px) {
+@media (min-width: 601px) and (max-width: 1100px) {
   .sphere-artwork {
     width: 55%;
     right: -7%;
+  }
+}
+
+/* Tablet keeps the animated sphere, but lets the copy stay readable. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero {
+    overflow: hidden;
+  }
+
+  .sphere-artwork {
+    width: min(52vw, 430px);
+    right: -8%;
+    top: 120px;
+    transform: none;
+    z-index: 0;
+    opacity: 0.92;
+  }
+
+  .sphere-scene {
+    filter: drop-shadow(0 20px 26px #0008);
   }
 }
